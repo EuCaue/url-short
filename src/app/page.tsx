@@ -1,20 +1,21 @@
 import ShortUrl from "@/components/short-url";
+import ShortUrlsList from "@/components/short-urls-list";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center w-full h-full self-center">
-      <Tabs defaultValue="new-short" className="w-[400px]">
-        <TabsList>
-          <TabsTrigger value="new-short">Short URL</TabsTrigger>
-          <TabsTrigger value="shorteds">Shorteds URLS</TabsTrigger>
+    <main className="flex justify-center items-center min-w-[100dvw] min-h-[100dvh]">
+      <Tabs defaultValue="short-url" className="w-[400px] ring-2 ring-black p-6 rounded shadow-lg">
+        <TabsList className="flex justify-center items-center">
+          <TabsTrigger value="short-url">shorten url</TabsTrigger>
+          <TabsTrigger value="history">history</TabsTrigger>
         </TabsList>
-        <TabsContent value="new-short">
-          <>
+        <TabsContent value="short-url">
           <ShortUrl />
-          </>
           </TabsContent>
-        <TabsContent value="shorteds">Change your password here.</TabsContent>
+        <TabsContent value="history">
+          <ShortUrlsList />
+          </TabsContent>
       </Tabs>
     </main>
   );
