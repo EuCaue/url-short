@@ -15,7 +15,7 @@ export default function ShortUrlsList() {
       ))}
     </ScrollArea>
   ) : (
-    <Alert className="text-center shadow-sm animate-jump-in max-w-[350px]">
+    <Alert className="text-center shadow-sm animate-jump-in max-w-[350px] ring-2 ring-black p-4 rounded">
       <AlertTitle>there&apos;s no short URL saved yet. :(</AlertTitle>
     </Alert>
   );
