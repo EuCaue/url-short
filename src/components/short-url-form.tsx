@@ -20,7 +20,7 @@ export default function ShortUrlForm() {
   async function handleSubmit(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault();
 
-    if (isLoading){
+    if (isLoading) {
       return;
     }
 
