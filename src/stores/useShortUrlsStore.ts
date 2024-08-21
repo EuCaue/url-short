@@ -27,13 +27,13 @@ type StatesLatestShortUrl = {
 }
 
 type ActionsLatestShortUrl = {
-  setShowLatestShortUrl: () => void;
+  setShowLatestShortUrl: (showLatest?: boolean) => void;
   setLatestShortUrl: (latestShortUrl?: SavedUrl) => void;
 }
 
 export const useLatestShortUrlStore = create<StatesLatestShortUrl & ActionsLatestShortUrl>((set) => ({
   latestShortUrl: undefined,
   showLatestShortUrl: false,
-  setShowLatestShortUrl: () => set((state) => ({ showLatestShortUrl: !state.showLatestShortUrl })),
+  setShowLatestShortUrl: (showLatest) => set((state) => ({ showLatestShortUrl: showLatest ?? !state.showLatestShortUrl })),
   setLatestShortUrl: (latestShortUrl) => set(() => ({ latestShortUrl }))
 }));
