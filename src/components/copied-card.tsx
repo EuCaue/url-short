@@ -17,7 +17,7 @@ export default function CopiedCard({ shrtUrl }: UrlCardProps) {
               </a>
             </Button>
           </pre>
-          copied with success.
+         copied successfully.
         </span>
       </CardContent>
     </Card>
