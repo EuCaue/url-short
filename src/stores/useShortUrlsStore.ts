@@ -16,11 +16,10 @@ export const useShortUrlsStore = create(
       urls: [],
       setUrls: (newUrls) => set(() => ({ urls: [...newUrls] }))
     }),
-    { name: "short-urls" } // Updated the key name for consistency
+    { name: "short-urls" } 
   )
 );
 
-// Store for managing the latest short URL
 type StatesLatestShortUrl = {
   showLatestShortUrl: boolean;
   latestShortUrl?: SavedUrl;
