@@ -10,12 +10,14 @@ import usePersistStore from "@/stores/useStore";
 import { SavedUrl } from "@/types";
 import { Loader } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { useToast } from "./ui/use-toast";
 
 export default function ShortUrlForm() {
   const [urlValue, setUrlValue] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const savedUrls = usePersistStore(useShortUrlsStore, (state) => state);
   const latestShortUrl = useLatestShortUrlStore((state) => state);
+  const { toast } = useToast();
 
   async function handleSubmit(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault();
@@ -68,7 +70,12 @@ export default function ShortUrlForm() {
       latestShortUrl.setShowLatestShortUrl(true);
       setUrlValue("");
     } catch (error) {
+      toast({
+        title: "Error",
+        description: "Sorry, we couldn't shorten the URL. :(",
+      });
       console.error("Error shortening the URL:", error);
+      setUrlValue("");
     } finally {
       setIsLoading(false);
     }
